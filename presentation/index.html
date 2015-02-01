@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="bower_components/shower-bright/styles/screen.css">
+    <style>
+      @font-face {
+        font-family: 'Lato';
+        src: url(fonts/lato-regular-webfont.woff) format('woff');
+      }
+      @font-face {
+        font-family: 'Lato';
+        src: url(fonts/lato-italic-webfont.woff) format('woff');
+        font-style: italic;
+      }
+      @font-face {
+        font-family: 'Lato';
+        src: url(fonts/lato-bold-webfont.woff) format('woff');
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: 'Lato';
+        src: url(fonts/lato-bolditalic-webfont.woff) format('woff');
+        font-weight: 700;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url(fonts/playfairdisplay-regular-webfont.woff) format('woff');
+      }
+      body, .slide h2 {
+        font-family: "Lato", sans-serif;
+      }
+      .slide.shout {
+        background: #3bafda;
+      }
+      .slide.shout.shout--white {
+        background: #fff;
+      }
+      .slide.shout.shout--white h2, .slide.shout.shout--white h3 {
+        color: #000;
+      }
+      .slide.shout.shout--intro, .slide.cover.cover--intro {
+        background: #1A6B89;
+        background-image: url('images/intro.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .slide.shout.shout--react, .slide.cover.cover--react {
+        background: #1A6B89;
+        background-image: url('images/react.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .slide.cover.cover--react h2, .slide.cover.cover--flux h2,
+      .slide.cover.cover--react h3, .slide.cover.cover--flux h3,
+      .slide.cover.cover--react a, .slide.cover.cover--flux a {
+        font-family: "Playfair Display", serif;
+        margin: 0 0 0;
+        color: #FFF;
+        text-align: center;
+      }
+      .slide.cover.cover--react h2, .slide.cover.cover--flux h2 {
+        text-align: center;
+        font-size: 4em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+      }
+      .slide.shout.shout--flux, .slide.cover.cover--flux {
+        background: #206F5B;
+        background-image: url('images/flux.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .slide.shout h2 {
+        font-size: 3em;
+      }
+      .slide.shout a {
+        color: #fff;
+      }
+      .slide.shout h3, .slide.cover h3 {
+        font-size: 1.75em;
+        line-height: 1;
+        color: #fff;
+        position: absolute;
+        bottom: 10%;
+        left: 128px;
+        right: 96px;
+      }
+      .list {
+        background-color: #fff;
+        text-align: left;
+      }
+      ul, ol {
+        font-size: 1.25em;
+      }
+    </style>
+  </head>
+
+  <body class="list">
+    <header class="caption">
+      <h1>React &amp; Flux</h1>
+
+      <p>By <a href="http://sublimecoder.com/">Rakesh Menon</a></p>
+    </header>
+    <section class="slide cover cover--intro" id="Cover">
+      <div>
+        <h2>React &amp; Flux</h2>
+
+        <p>by <a href="http://sublimecoder.com">Rakesh Menon</a></p>
+        <!-- <img src="images/intro.jpg" alt=""> -->
+        <style>
+        #Cover h2 {
+          font-family: "Playfair Display", serif;
+          margin: 0 0 0;
+          color: #FFF;
+          text-align: center;
+          font-size: 4em;
+          position: absolute;
+          top: 25%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+        }
+        #Cover p {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 1em 2em;
+          text-align: center;
+          color: #FFF;
+          font-style: italic;
+          font-size: .8em;
+        }
+        #Cover p a {
+          color: #FFF;
+        }
+        </style>
+      </div>
+    </section>
+    <section class="slide cover cover--react">
+      <div>
+        <h2>React</h2>
+        <h3 class="next"><a href="https://facebook.github.io/react/" title="React">facebook.github.io/react/</a></h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>React is the V in MVC</h2>
+        <h3 class="next">Use whatever framework you like</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>On data changes,<br>the whole DOM<br>is rerendered.</h2></div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>90s style refresh!</h2>
+        <h3 class="next">But … that's slow!</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Introducing:<br>Virtual DOM</h2></div>
+    </section>
+    <section class="slide">
+      <div>
+        <ul>
+          <li>Render virtual DOM</li>
+          <li class="next">Render real DOM</li>
+          <li class="next">Data changes</li>
+          <li class="next">Rerender virtual DOM</li>
+          <li class="next">Update real DOM</li>
+        </ul>
+        <h2 class="next">Minimal DOM operations</h2>
+      </div>
+    </section>
+    <section class="slide shout shout--white">
+      <div><h2>Side effect:<br>Server side rendering</h2></div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Everything is a component</h2></div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({</code>
+          <code>  render: function() {</code>
+          <code>    return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(&lt;Hello name="HH.js" /&gt;, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code><mark class="important">var Hello = React.createClass</mark>({</code>
+          <code>  render: function() {</code>
+          <code>    return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(&lt;Hello name="HH.js" /&gt;, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({</code>
+          <code>  render: function() {</code>
+          <code>    return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code><mark class="important">React.renderComponent(&lt;Hello name="HH.js" /&gt;, document.body);</mark></code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({</code>
+          <code>  <mark class="important">render</mark>: function() {</code>
+          <code>    return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(&lt;Hello name="HH.js" /&gt;, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({</code>
+          <code>  render: function() {</code>
+          <code>    <mark class="important">return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</mark></code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(&lt;Hello name="HH.js" /&gt;, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Wait, whats' that?</h2></div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>Introducing:<br>JSX</h2>
+        <h3 class="next">Write JavaScript with HTML syntax.</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>Introducing:<br>JSX</h2>
+        <h3>It is not required.</h3>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({</code>
+          <code>  render: function() {</code>
+          <code>    <mark>return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;</mark></code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(<mark>&lt;Hello name="HH.js" /&gt;</mark>, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide code">
+      <div>
+        <pre>
+          <code><mark class="comment">/** @jsx React.DOM */</mark></code>
+          <code>var Hello = React.createClass({<mark>displayName: 'Hello',</mark></code>
+          <code>  render: function() {</code>
+          <code>    <mark>return React.DOM.div(null, "Hello ", this.props.name);</mark></code>
+          <code>  }</code>
+          <code>});</code>
+          <code>  </code>
+          <code>React.renderComponent(<mark>Hello({name: "HH.js"})</mark>, document.body);</code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>Components<br>are just functions</h2>
+        <h3 class="next">The output should be the same at any time</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Components<br>have a lifecycle</h2></div>
+    </section>
+    <section class="slide lifecycle">
+      <div>
+        <div class="lifecycle__step lifecycle__step--right">getDefaultProps()</div>
+        <div class="next lifecycle__step lifecycle__step--right">getInitialState()</div>
+        <div class="next lifecycle__step lifecycle__step--left">componentWillMount()</div>
+        <div class="next lifecycle__step lifecycle__step--left">componentDidMount()</div>
+        <div class="next lifecycle__step lifecycle__step--right">componentWillReceiveProps()</div>
+        <div class="next lifecycle__step lifecycle__step--right">shouldComponentUpdate()</div>
+        <div class="next lifecycle__step lifecycle__step--right">componentWillUpdate()</div>
+        <div class="next lifecycle__step lifecycle__step--right">componentDidUpdate()</div>
+        <div class="next lifecycle__step lifecycle__step--left">componentWillUnmount()</div>
+      </div>
+      <style type="text/css" media="screen">
+        .lifecycle__step {
+          color: #656d78;
+        }
+        .lifecycle__step--left {
+          width: 51.5%;
+          text-align: right;
+        }
+        .lifecycle__step--left:after {
+          content: '';
+          display: inline-block;
+          background: #ccd1d9;
+          border: 1px solid #aab2bd;
+          height: 2em;
+          width: 2em;
+          border-radius: 50%;
+          vertical-align: middle;
+          margin-left: 1em;
+        }
+        .lifecycle__step--right {
+          width: 53%;
+          text-align: left;
+          margin-left: 47%;
+        }
+        .lifecycle__step--right:before {
+          content: '';
+          display: inline-block;
+          background: #ccd1d9;
+          height: 1em;
+          width: 1em;
+          border-radius: 50%;
+          vertical-align: middle;
+          margin-right: 1em;
+        }
+      </style>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Components<br>have props and state</h2></div>
+    </section>
+    <section class="slide">
+      <div>
+        <p>Immutable <code>props</code> get passed in from parents.</p>
+        <p>Changeable <code>state</code> kept in a component.</p>
+        <p><code>state</code> can be passed to child components.</p>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>What about separation of concerns?</h2></div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>Separating concerns.</h2>
+        <h3 class="next">React only fulfills the View.</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>Separating concerns.</h2>
+        <h3>Markup and layout depend on each other.</h3>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div><h2>Safe to use?</h2></div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>It's been battle tested at:</h2>
+        <ul>
+          <li class="next">Instagram web</li>
+          <li class="next">Facebook (some parts)</li>
+          <li class="next">Atom editor</li>
+          <li class="next">Yahoo Mail</li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide shout shout--react">
+      <div>
+        <h2>
+          <a href="http://react-components.com/" title="React components">
+            react-components.com
+          </a>
+        </h2>
+      </div>
+    </section>
+    <section class="slide cover cover--flux">
+      <div>
+        <h2>Flux</h2>
+        <h3 class="next"><a href="https://facebook.github.io/flux/" title="Flux">facebook.github.io/flux/</a></h3>
+      </div>
+    </section>
+    <section class="slide shout shout--flux">
+      <div><h2>It's not a framework.<br><span class="next">It's a pattern.</span></h2></div>
+    </section>
+    <section class="slide shout shout--flux">
+      <div><h2>Complements React</h2></div>
+    </section>
+    <section class="slide shout shout--flux">
+      <div><h2>Unidirectional data flow</h2></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div>
+        <img src="images/flux-schema-1.svg" alt="">
+      </div>
+      <style type="text/css" media="screen">
+        .slide.cover.flux-schema {
+          background: #fff;
+        }
+        .slide.cover.flux-schema img {
+          height: 90%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      </style>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-2.svg" alt=""></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-3.svg" alt=""></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-4.svg" alt=""></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-5.svg" alt=""></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-6.svg" alt=""></div>
+    </section>
+    <section class="slide cover flux-schema">
+      <div><img src="images/flux-schema-complete.svg" alt=""></div>
+    </section>
+    <section class="slide shout shout--flux">
+      <div>
+        <h2>Implementations</h2>
+        <h3>
+          <span class="next"><a href="http://deloreanjs.com/" title="Delorean.js">deloreanjs.com</a></span>
+          <br><br>
+          <span class="next"><a href="https://github.com/spoike/refluxjs" title="Reflux">github.com/spoike/refluxjs</a></span>
+          <br><br>
+          <span class="next"><a href="http://fluxxor.com/">Fluxxor!</a></span>
+        </h3>
+      </div>
+    </section>
+    <section class="slide shout shout--intro">
+      <div><h2>Thanks!</h2></div>
+    </section>
+
+    <!--  build:YEOMAN-GENERATOR-PLACEHOLDER -->
+    <!--
+      The line above is used by shower generator to insert slides. Please don't remove.
+  -->
+    </p>
+
+    <script src="bower_components/shower-core/shower.min.js"></script>
+  </body>
+</html>
