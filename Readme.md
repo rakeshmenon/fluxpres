@@ -1,5 +1,7 @@
 # Presentation: React & Flux
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rakeshmenon/fluxpres.svg)](https://greenkeeper.io/)
+
 This is a presentation on React and FLux architecture.
 
 ## Setup
